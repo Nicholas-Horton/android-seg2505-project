@@ -92,25 +92,27 @@
         android:id="@+id/tip_ratingbar"
         android:numStars="5"
         android:rating="3"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tip_picker"
-        android:layout_alignTop="@+id/tip_ratingbar"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/b_manual"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="79dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:text="Calculate"
         android:id="@+id/b_submit"
         android:layout_marginTop="48dp"
         android:enabled="true"
         android:minWidth="128dp"
         android:layout_below="@+id/tip_picker"
         android:layout_centerHorizontal="true" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tip_picker"
+        android:layout_above="@+id/b_submit"
+        android:layout_alignLeft="@+id/tip_picker"
+        android:layout_alignStart="@+id/tip_picker" />
 
 </RelativeLayout>
