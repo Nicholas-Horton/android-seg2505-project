@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">TipCalc</string>
 
-
-    <string name="hello_world">Hello world!</string>
-
+    <string name="lbl_tipToPay">Tip to Pay:</string>
     <string name="label_bill_amount">Bill Amount</string>
     <string name="label_number_of_people">Number of People</string>
     <string name="label_tip">Tip %</string>

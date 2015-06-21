@@ -20,21 +20,23 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     public void submitButtionClickListener(){
-        Button btnSubmit = (Button)findViewById(R.id.b_submit);
+        Button btnSubmit = (Button)findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch(v.getId()){
-            case R.id.b_submit:
+            case R.id.btnSubmit:
                 b_submitClick();
                 break;
         }
     }
 
     public void b_submitClick(){
-        startActivity(new Intent("net.wintastic.tipcalc.SummaryActivity"));
+        Intent i = new Intent("net.wintastic.tipcalc.SummaryActivity");
+        //i.putExtra("net.wintastic.tipcalc.", );
+        startActivity(i);
     }
 
     @Override
