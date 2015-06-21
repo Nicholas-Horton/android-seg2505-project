@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.NumberPicker;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
@@ -17,6 +18,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         submitButtionClickListener();
+
+        setContentView(R.layout.activity_main);
+        NumberPicker np= (NumberPicker) findViewById(R.id.tip_picker);
+        np.setMaxValue(30);
+        np.setMinValue(0);
     }
 
     public void submitButtionClickListener(){

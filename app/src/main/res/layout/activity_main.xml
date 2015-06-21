@@ -85,15 +85,21 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <NumberPicker
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:id="@+id/tip_picker"
+        android:clickable="true"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_gravity="center_horizontal"
+        android:transitionGroup="true" />
 
-        <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ratingBar3" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
     </LinearLayout>
 
     <LinearLayout
