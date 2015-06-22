@@ -39,10 +39,10 @@ public class SummaryActivity extends ActionBarActivity {
         TextView txtTipTotal   = (TextView) findViewById(R.id.txtTipTotal);
 
         txtBillAmount.setText("" + formatter.format(billAmount));
-        txtNumPeople.setText("" + numPeople);
-        txtTipAmount.setText("" + tipAmount * 100 + "%");
-        txtTipTotal.setText("" + formatter.format(tipTotal));
-        txtTipToPay.setText("" + formatter.format(tipToPay));
+        txtNumPeople.setText( "" + numPeople);
+        txtTipAmount.setText( "" + Math.round(tipAmount * 100) + "%"); // tip amount does not display correctly without rounding
+        txtTipTotal.setText(  "" + formatter.format(tipTotal));
+        txtTipToPay.setText(  "" + formatter.format(tipToPay));
 
     }
 
