@@ -12,14 +12,15 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/label_bill_amount" />
+            android:layout_weight="0.75"
+            android:text="@string/label_bill_amount"
+            android:textSize="24dp" />
 
         <EditText
             android:id="@+id/billAmount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="0.25"
             android:ems="10"
             android:inputType="numberDecimal"
             android:text="0.00" />
@@ -33,14 +34,15 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/label_number_of_people" />
+            android:layout_weight="0.75"
+            android:text="@string/label_number_of_people"
+            android:textSize="24dp" />
 
         <EditText
             android:id="@+id/numberPeople"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="0.25"
             android:ems="10"
             android:inputType="number"
             android:text="1" />
@@ -55,7 +57,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/label_tip" />
+            android:text="@string/label_tip"
+            android:textSize="24dp" />
 
         <Button
             android:layout_width="0dp"
