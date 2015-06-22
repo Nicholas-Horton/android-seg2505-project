@@ -19,7 +19,6 @@ import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,7 +107,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         String billAmount = etxtBillAmount.getText().toString();
         String numPeople  = etxtNumberOfPeople.getText().toString();
-        int numPeopleInt = Integer.parseInt(numPeople);
 
         NumberPicker np = (NumberPicker) findViewById(R.id.tip_picker);
 
@@ -125,8 +123,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 if (billAmount.isEmpty()) {
                     t.setText(R.string.billAmountWarning);
                     etxtBillAmount.setBackgroundColor(0xFFFFD3D0);
-                    // TextView billAmt = (TextView) findViewById(R.id.txtBillAmount);
-                    //  billAmt.setTextColor(0xFF00FF00);
+
                 }
                 if (numPeople.equals("0"))
                 {   t2.setText(R.string.numPeopleWarning2);
@@ -135,8 +132,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 if (numPeople.isEmpty()) {
                     t2.setText(R.string.numPeopleWarning);
                     etxtNumberOfPeople.setBackgroundColor(0xFFFFD3D0);
-                    //   TextView numPayees = (TextView) findViewById(R.id.txtNumPayees);
-                    //  numPayees.setTextColor(0xFF00FF00);
+
                 }
                 
                 if (!numPeople.isEmpty() && !numPeople.equals("0") && !billAmount.isEmpty()) {
@@ -170,19 +166,17 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+
         if (id == R.id.action_settings) {
             Intent intent = new Intent("net.wintastic.tipcalc.SettingsActivity");
             startActivity(intent);
