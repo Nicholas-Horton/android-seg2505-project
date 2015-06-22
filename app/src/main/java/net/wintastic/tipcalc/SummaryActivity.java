@@ -21,6 +21,7 @@ public class SummaryActivity extends ActionBarActivity {
     private float tipToPay        = 0f;
     private float amountPerPerson = 0f;
 
+    private String currencyString = "$";
     private NumberFormat         formatter      = NumberFormat.getCurrencyInstance();
     private DecimalFormatSymbols currencyFormat = new DecimalFormatSymbols();
 
@@ -31,7 +32,8 @@ public class SummaryActivity extends ActionBarActivity {
         Intent intent = getIntent();
 
         //Currency formatting
-        currencyFormat.setCurrencySymbol("$"); //TODO: Placeholder, needs to use settings value
+        currencyString = intent.getStringExtra("currencyString");
+        currencyFormat.setCurrencySymbol(currencyString); //TODO: Placeholder, needs to use settings value
         currencyFormat.setDecimalSeparator('.');
         ((DecimalFormat) formatter).setDecimalFormatSymbols(currencyFormat);
 

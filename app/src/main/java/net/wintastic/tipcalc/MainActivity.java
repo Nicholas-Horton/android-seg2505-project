@@ -93,7 +93,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     //  numPayees.setTextColor(0xFF00FF00);
                 }
                 else {
-                    b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent);
+                    b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent, "$"); //TODO: Add a global var for currency character
                 }
                 break;
             case R.id.buttonManual:
@@ -107,11 +107,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }
     }
 
-    public void b_submitClick(float billAmount, int numPeople, float tipPercent){
+    public void b_submitClick(float billAmount, int numPeople, float tipPercent, String currencyString){
         Intent i = new Intent("net.wintastic.tipcalc.SummaryActivity");
         i.putExtra("billAmount", billAmount);
         i.putExtra("numPeople",  numPeople);
         i.putExtra("tipPercent", tipPercent);
+        i.putExtra("currencyString", currencyString);
         startActivity(i);
     }
 
