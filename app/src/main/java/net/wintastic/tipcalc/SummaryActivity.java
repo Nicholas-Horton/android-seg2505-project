@@ -34,7 +34,7 @@ public class SummaryActivity extends ActionBarActivity {
 
         //Currency formatting
         currencyString = intent.getStringExtra("currencyString");
-        currencyFormat.setCurrencySymbol(currencyString); //TODO: Placeholder, needs to use settings value
+        currencyFormat.setCurrencySymbol(currencyString);
         currencyFormat.setDecimalSeparator('.');
         ((DecimalFormat) formatter).setDecimalFormatSymbols(currencyFormat);
 
