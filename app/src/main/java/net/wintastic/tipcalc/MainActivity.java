@@ -143,8 +143,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     etxtNumberOfPeople.setBackgroundColor(0x00000000);
                     etxtBillAmount.setBackgroundColor(0x00000000);
                     t.setText(""); t2.setText("");
-                    b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent, "$"); SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-                    String c = sharedPref.getString("pref_currency", "$"); //TODO: Add a global var for currency character
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+                    String c = sharedPref.getString("pref_currency", "$");
+                    b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent, c);
                 }
                 break;
             case R.id.buttonManual:
