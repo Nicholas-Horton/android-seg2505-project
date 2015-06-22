@@ -10,4 +10,7 @@
     <string name="button_label_submit">Submit</string>
     <string name="title_activity_summary">Summary</string>
     <string name="action_settings">Settings</string>
+
+    <string name="billAmountWarning">No value entered for Bill Amount</string>
+    <string name="numPeopleWarning">No value entered for Number of People</string>
 </resources>

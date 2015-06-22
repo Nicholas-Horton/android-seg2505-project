@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
@@ -39,16 +40,31 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         String billAmount = etxtBillAmount.getText().toString();
         String numPeople  = etxtNumberOfPeople.getText().toString();
-
         NumberPicker np = (NumberPicker) findViewById(R.id.tip_picker);
-
         float tipPercent = (float)np.getValue() / 100;
 
+        TextView t =(TextView)findViewById(R.id.warning_txt);
+        if (billAmount.isEmpty()) {
+            t.setText(R.string.billAmountWarning);
+            etxtBillAmount.setBackgroundColor(0xFFFFD3D0);
+           // TextView billAmt = (TextView) findViewById(R.id.txtBillAmount);
+          //  billAmt.setTextColor(0xFF00FF00);
+        }
+        else if (numPeople.isEmpty()) {
+            t.setText(R.string.numPeopleWarning);
+            etxtNumberOfPeople.setBackgroundColor(0xFFFFD3D0);
+         //   TextView numPayees = (TextView) findViewById(R.id.txtNumPayees);
+         //  numPayees.setTextColor(0xFF00FF00);
 
-        switch(v.getId()){
-            case R.id.btnSubmit:
-                b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent);
-                break;
+        }
+
+        else {
+
+            switch (v.getId()) {
+                case R.id.btnSubmit:
+                    b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent);
+                    break;
+            }
         }
     }
 
