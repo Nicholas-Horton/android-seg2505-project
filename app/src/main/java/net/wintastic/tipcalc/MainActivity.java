@@ -1,11 +1,12 @@
 package net.wintastic.tipcalc;
 
-import android.app.TabActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +29,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         tipMethodsButtonClickListener();
 
         ratingChangeListener();
+
+        addBillAmountValidatorListener();
 
         NumberPicker np = (NumberPicker) findViewById(R.id.tip_picker);
         np.setMaxValue(50);
@@ -59,6 +62,31 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 int val = (int) (10 + 2 * rating);
                 suggestedResult.setText(val + "%");
                 tipPicker.setValue(val);
+            }
+        });
+    }
+
+    public void addBillAmountValidatorListener() {
+        final EditText billAmount = (EditText)findViewById(R.id.billAmount);
+        billAmount.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = billAmount.getText().toString();
+                int decimalPosition = text.indexOf(".");
+                if (decimalPosition >= 0) {
+                    if (text.substring(decimalPosition).length() > 3) {
+                        billAmount.setText(text.substring(0, decimalPosition + 3));
+                        billAmount.setSelection(decimalPosition + 3);
+                    }
+                }
             }
         });
     }
