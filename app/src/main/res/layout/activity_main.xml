@@ -78,31 +78,39 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:gravity="center">
 
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ratingBar2"
-            android:stepSize="1" />
+            android:rating="2.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/suggested_result"
+            android:text="15%" />
 
     </LinearLayout>
 
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tip_picker"
-        android:clickable="true"
-        android:orientation="vertical"
-        android:visibility="visible"
-        android:layout_gravity="center_horizontal"
-        android:transitionGroup="true" />
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
 
+        <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tip_picker"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:layout_gravity="center_horizontal"
+            android:transitionGroup="true" />
     </LinearLayout>
 
     <LinearLayout
