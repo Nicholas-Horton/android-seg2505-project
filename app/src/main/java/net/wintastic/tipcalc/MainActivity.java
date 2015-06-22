@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
+import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
@@ -17,31 +18,38 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        submitButtionClickListener();
+        submitButtonClickListener();
 
-        setContentView(R.layout.activity_main);
         NumberPicker np= (NumberPicker) findViewById(R.id.tip_picker);
         np.setMaxValue(30);
         np.setMinValue(0);
     }
 
-    public void submitButtionClickListener(){
+    public void submitButtonClickListener(){
         Button btnSubmit = (Button)findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+        EditText etxtBillAmount = (EditText) findViewById(R.id.billAmount);
+        EditText etxtNumberOfPeople = (EditText) findViewById(R.id.numberPeople);
+
+        String billAmount = etxtBillAmount.getText().toString();
+        String numPeople  = etxtNumberOfPeople.getText().toString();
+
         switch(v.getId()){
             case R.id.btnSubmit:
-                b_submitClick();
+                b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), 0.15f);
                 break;
         }
     }
 
-    public void b_submitClick(){
+    public void b_submitClick(float billAmount, int numPeople, float tipPercent){
         Intent i = new Intent("net.wintastic.tipcalc.SummaryActivity");
-        //i.putExtra("net.wintastic.tipcalc.", );
+        i.putExtra("billAmount", billAmount);
+        i.putExtra("numPeople",  numPeople);
+        i.putExtra("tipPercent", tipPercent);
         startActivity(i);
     }
 
