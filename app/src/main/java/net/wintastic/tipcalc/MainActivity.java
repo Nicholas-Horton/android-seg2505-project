@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.EditText;
 
@@ -20,6 +21,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         submitButtonClickListener();
+        tipMethodsButtonClickListener();
 
         NumberPicker np = (NumberPicker) findViewById(R.id.tip_picker);
         np.setMaxValue(30);
@@ -30,6 +32,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void submitButtonClickListener(){
         Button btnSubmit = (Button)findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
+    }
+
+    public void tipMethodsButtonClickListener(){
+        Button btnManual = (Button)findViewById(R.id.buttonManual);
+        Button btnSuggested = (Button)findViewById(R.id.buttonSuggested);
+        btnManual.setOnClickListener(this);
+        btnSuggested.setOnClickListener(this);
     }
 
     @Override
@@ -45,9 +54,19 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         float tipPercent = (float)np.getValue() / 100;
 
 
+        LinearLayout ratingLayout=(LinearLayout)this.findViewById(R.id.ratingLayout);
+        LinearLayout tipPercentLayout=(LinearLayout)this.findViewById(R.id.tipPercentLayout);
         switch(v.getId()){
             case R.id.btnSubmit:
                 b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent);
+                break;
+            case R.id.buttonManual:
+                ratingLayout.setVisibility(LinearLayout.GONE);
+                tipPercentLayout.setVisibility(LinearLayout.VISIBLE);
+                break;
+            case R.id.buttonSuggested:
+                ratingLayout.setVisibility(LinearLayout.VISIBLE);
+                tipPercentLayout.setVisibility(LinearLayout.GONE);
                 break;
         }
     }
