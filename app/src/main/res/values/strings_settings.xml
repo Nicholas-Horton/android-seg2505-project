@@ -1,0 +1,16 @@
+<resources>
+    <string name="preferences_currency">Currency</string>
+    <string name="pref_currency_default">$</string>
+    <string-array name="currencies">
+        <item>$</item>
+        <item>€</item>
+        <item>£</item>
+    </string-array>
+
+    <string name="pref_currency_title">Select a currency</string>
+    <string name="pref_tip_key">pref_tip</string>
+    <string name="pref_currency_key">pref_currency</string>
+    <string name="pref_tip_default">15</string>
+    <string name="pref_tip_title">Enter a default tip percentage</string>
+    <string name="preferences_tip">Default tip</string>
+</resources>

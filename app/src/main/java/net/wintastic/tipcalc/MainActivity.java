@@ -2,6 +2,8 @@ package net.wintastic.tipcalc;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -93,7 +95,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     //  numPayees.setTextColor(0xFF00FF00);
                 }
                 else {
-                    b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent, "$"); //TODO: Add a global var for currency character
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+                    String c = sharedPref.getString("pref_currency", "$");
+                    b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent, c);
                 }
                 break;
             case R.id.buttonManual:
@@ -132,10 +136,28 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent("net.wintastic.tipcalc.SettingsActivity");
+            startActivity(intent);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setCurrency();
+    }
+
+    public void setCurrency() {
+        TextView billAmount = (TextView)findViewById(R.id.labelBillAmount);
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String c = sharedPref.getString("pref_currency", "$");
+
+        String billAmountText = getResources().getString(R.string.label_bill_amount);
+        billAmount.setText(billAmountText + " (" + c + ")");
     }
 
 }

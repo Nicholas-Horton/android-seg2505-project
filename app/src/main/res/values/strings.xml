@@ -9,6 +9,7 @@
     <string name="button_label_suggested_tip">Suggested</string>
     <string name="button_label_submit">Submit</string>
     <string name="title_activity_summary">Summary</string>
+    <string name="title_activity_settings">Settings</string>
     <string name="action_settings">Settings</string>
     <string name="label_TipTotal">Tip Total</string>
     <string name="billAmountWarning">No value entered for Bill Amount</string>

@@ -14,7 +14,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.60"
             android:text="@string/label_bill_amount"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:id="@+id/labelBillAmount" />
 
         <EditText
             android:id="@+id/billAmount"
