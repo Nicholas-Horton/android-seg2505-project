@@ -12,10 +12,11 @@ import java.text.NumberFormat;
 
 public class SummaryActivity extends ActionBarActivity {
 
-    private float billAmount = 0f;
-    private int   numPeople  = 0;
-    private float tipAmount  = 0f;
-    private float tipToPay = 0f;
+    private float billAmount  = 0f;
+    private int   numPeople   = 0;
+    private float tipAmount   = 0f;
+    private float tipTotal    = 0f;
+    private float tipToPay    = 0f;
 
     private final NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
@@ -27,24 +28,26 @@ public class SummaryActivity extends ActionBarActivity {
         billAmount = intent.getFloatExtra("billAmount", 0f);
         numPeople  = intent.getIntExtra("numPeople", 0);
         tipAmount  = intent.getFloatExtra("tipPercent", 0f);
-        tipToPay   = calculateTip(billAmount, numPeople, tipAmount);
+
+        tipTotal   = calculateTipTotal(billAmount, numPeople, tipAmount);
+        if (numPeople == 0){tipToPay = 0f;} else{tipToPay   = tipTotal / numPeople;}
 
         TextView txtBillAmount = (TextView) findViewById(R.id.txtBillAmount);
         TextView txtNumPeople  = (TextView) findViewById(R.id.txtNumPayees);
         TextView txtTipAmount  = (TextView) findViewById(R.id.txtTipPercent);
         TextView txtTipToPay   = (TextView) findViewById(R.id.txtTipToPay);
+        TextView txtTipTotal   = (TextView) findViewById(R.id.txtTipTotal);
 
         txtBillAmount.setText("" + formatter.format(billAmount));
         txtNumPeople.setText("" + numPeople);
         txtTipAmount.setText("" + tipAmount * 100 + "%");
+        txtTipTotal.setText("" + formatter.format(tipTotal));
         txtTipToPay.setText("" + formatter.format(tipToPay));
+
     }
 
-    private float calculateTip(float billAmount, int numPeople, float tipAmount){
-
-        if (numPeople == 0) { return 0;}
-        else {
-        return (billAmount * tipAmount) / numPeople;}
+    private float calculateTipTotal(float billAmount, int numPeople, float tipAmount){
+        return billAmount * tipAmount;
     }
 
     @Override
