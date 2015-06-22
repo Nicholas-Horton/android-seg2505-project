@@ -23,42 +23,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         submitButtonClickListener();
-        tipMethodsButtonClickListener();
-
-        ratingChangeListener();
 
         NumberPicker np = (NumberPicker) findViewById(R.id.tip_picker);
-        np.setMaxValue(50);
-        np.setMinValue(0);
-        np.setValue(15);
+        np.setMaxValue(30);
+        np.setMinValue(1);
         np.setWrapSelectorWheel(false);
     }
 
     public void submitButtonClickListener(){
         Button btnSubmit = (Button)findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
-    }
-
-    public void tipMethodsButtonClickListener(){
-        Button btnManual = (Button)findViewById(R.id.buttonManual);
-        Button btnSuggested = (Button)findViewById(R.id.buttonSuggested);
-        btnManual.setOnClickListener(this);
-        btnSuggested.setOnClickListener(this);
-    }
-
-    public void ratingChangeListener(){
-        RatingBar ratingBar = (RatingBar)findViewById(R.id.ratingBar);
-        final TextView suggestedResult = (TextView)findViewById(R.id.suggestedResult);
-        final NumberPicker tipPicker = (NumberPicker)findViewById(R.id.tip_picker);
-
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                int val = (int) (10 + 2*rating);
-                suggestedResult.setText(val + "%");
-                tipPicker.setValue(val);
-            }
-        });
     }
 
     @Override
@@ -76,10 +50,26 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         LinearLayout ratingLayout=(LinearLayout)this.findViewById(R.id.ratingLayout);
         LinearLayout tipPercentLayout=(LinearLayout)this.findViewById(R.id.tipPercentLayout);
-        switch(v.getId()){
+        switch(v.getId()) {
+
             case R.id.btnSubmit:
-                b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent);
-                break;
+                TextView t = (TextView) findViewById(R.id.warning_txt);
+                if (billAmount.isEmpty()) {
+                    t.setText(R.string.billAmountWarning);
+                    etxtBillAmount.setBackgroundColor(0xFFFFD3D0);
+                    // TextView billAmt = (TextView) findViewById(R.id.txtBillAmount);
+                    //  billAmt.setTextColor(0xFF00FF00);
+                }
+                else if (numPeople.isEmpty()) {
+                    t.setText(R.string.numPeopleWarning);
+                    etxtNumberOfPeople.setBackgroundColor(0xFFFFD3D0);
+                    //   TextView numPayees = (TextView) findViewById(R.id.txtNumPayees);
+                    //  numPayees.setTextColor(0xFF00FF00);
+                }
+                    else {
+                        b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent);
+                    }
+                        break;
             case R.id.buttonManual:
                 ratingLayout.setVisibility(LinearLayout.GONE);
                 tipPercentLayout.setVisibility(LinearLayout.VISIBLE);
@@ -89,7 +79,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 tipPercentLayout.setVisibility(LinearLayout.GONE);
                 break;
         }
-    }
+        }
+
 
     public void b_submitClick(float billAmount, int numPeople, float tipPercent){
         Intent i = new Intent("net.wintastic.tipcalc.SummaryActivity");
