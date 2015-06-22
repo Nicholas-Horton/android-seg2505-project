@@ -91,6 +91,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         });
     }
 
+    public void setDefaultTip() {
+        NumberPicker tipPicker = (NumberPicker)findViewById(R.id.tip_picker);
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String c = sharedPref.getString("pref_tip", "15");
+        int tip = Integer.parseInt(c);
+
+        tipPicker.setValue(tip);
+    }
+
     @Override
     public void onClick(View v) {
         EditText etxtBillAmount = (EditText) findViewById(R.id.billAmount);
@@ -176,6 +186,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
         setCurrency();
+        setDefaultTip();
     }
 
     public void setCurrency() {
