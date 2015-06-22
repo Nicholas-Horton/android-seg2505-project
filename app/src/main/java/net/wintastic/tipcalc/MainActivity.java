@@ -32,7 +32,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         addBillAmountValidatorListener();
 
         NumberPicker np = (NumberPicker) findViewById(R.id.tip_picker);
-        np.setMaxValue(50);
+        np.setMaxValue(100);
         np.setMinValue(0);
         np.setValue(15);
         np.setWrapSelectorWheel(false);
