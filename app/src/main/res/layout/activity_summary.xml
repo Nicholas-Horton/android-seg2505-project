@@ -15,15 +15,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.60"
             android:text="@string/label_bill_amount"
-            android:textSize="30dp"/>
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/txtBillAmount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="right"
             android:layout_weight="0.40"
             android:ems="10"
-            android:textSize="30dp" />
+            android:textSize="24dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -37,15 +38,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.60"
             android:text="@string/label_number_of_people"
-            android:textSize="30dp" />
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/txtNumPayees"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="right"
             android:layout_weight="0.40"
             android:ems="10"
-            android:textSize="30dp" />
+            android:textSize="24dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -59,15 +61,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.60"
             android:text="@string/label_tip"
-            android:textSize="30dp" />
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/txtTipPercent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="right"
             android:layout_weight="0.40"
             android:ems="10"
-            android:textSize="30dp" />
+            android:textSize="24dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -98,15 +101,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.60"
             android:text="@string/label_TipTotal"
-            android:textSize="30dp" />
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/txtTipTotal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="right"
             android:layout_weight="0.40"
             android:ems="10"
-            android:textSize="30dp" />
+            android:textSize="24dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -120,15 +124,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.60"
             android:text="@string/lbl_tipToPay"
-            android:textSize="30dp" />
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/txtTipToPay"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="right"
             android:layout_weight="0.40"
             android:ems="10"
-            android:textSize="30dp" />
+            android:textSize="24dp" />
 
     </LinearLayout>
 </LinearLayout>
