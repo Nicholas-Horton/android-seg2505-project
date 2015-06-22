@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     android:orientation="vertical"
     android:padding="10dp">
 
@@ -51,7 +51,22 @@
             android:text="1"
             android:textSize="24dp" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:orientation="horizontal">
 
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -117,45 +132,54 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingTop="30dp"
         android:gravity="center"
         android:id="@+id/tipPercentLayout"
         android:visibility="visible">
 
-        <NumberPicker
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:text="@string/label_tipAmount"
+            android:textSize="24dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.4"
+            android:layout_height="wrap_content">
+
+            <NumberPicker
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tip_picker"
             android:clickable="true"
             android:orientation="vertical"
             android:visibility="visible"
-            android:layout_gravity="center_horizontal"
             android:transitionGroup="true" />
-    </LinearLayout>
 
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="%"
+                android:textSize="48dp" />
+        </LinearLayout>
+
+    </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="115dp"
-        android:orientation="horizontal" >
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".25" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".75"
-            android:orientation="horizontal" >
-
-            <Button
-                android:id="@+id/btnSubmit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:text="@string/button_label_submit" />
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="bottom"
+            android:ems="10"
+            android:text="@string/button_label_submit"
+            android:textSize="24dp"/>
 
     </LinearLayout>
 
