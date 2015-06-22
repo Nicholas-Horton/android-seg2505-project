@@ -13,15 +13,18 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:text="@string/label_bill_amount" />
+            android:layout_weight="0.60"
+            android:text="@string/label_bill_amount"
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/txtBillAmount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.75"
-            android:ems="10" />
+            android:gravity="right"
+            android:layout_weight="0.40"
+            android:ems="10"
+            android:textSize="24dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -33,15 +36,18 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:text="@string/label_number_of_people" />
+            android:layout_weight="0.60"
+            android:text="@string/label_number_of_people"
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/txtNumPayees"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.75"
-            android:ems="10" />
+            android:gravity="right"
+            android:layout_weight="0.40"
+            android:ems="10"
+            android:textSize="24dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -53,15 +59,18 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:text="@string/label_tip" />
+            android:layout_weight="0.60"
+            android:text="@string/label_tip"
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/txtTipPercent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.75"
-            android:ems="10" />
+            android:gravity="right"
+            android:layout_weight="0.40"
+            android:ems="10"
+            android:textSize="24dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -90,14 +99,70 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:text="@string/lbl_tipToPay" />
+            android:layout_weight="0.60"
+            android:text="@string/label_TipTotal"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/txtTipTotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="0.40"
+            android:ems="10"
+            android:textSize="24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.60"
+            android:text="@string/lbl_tipToPay"
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/txtTipToPay"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.75"
-            android:ems="10" />
+            android:gravity="right"
+            android:layout_weight="0.40"
+            android:ems="10"
+            android:textSize="24dp" />
+
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:background="@android:color/darker_gray">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.60"
+            android:text="Total Per Person"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtAmountToPay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="0.40"
+            android:ems="10"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
 </LinearLayout>

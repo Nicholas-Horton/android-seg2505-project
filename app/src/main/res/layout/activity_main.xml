@@ -12,14 +12,15 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/label_bill_amount" />
+            android:layout_weight="0.75"
+            android:text="@string/label_bill_amount"
+            android:textSize="24dp" />
 
         <EditText
             android:id="@+id/billAmount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="0.25"
             android:ems="10"
             android:inputType="numberDecimal"
             android:text="0.00" />
@@ -33,14 +34,15 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/label_number_of_people" />
+            android:layout_weight="0.75"
+            android:text="@string/label_number_of_people"
+            android:textSize="24dp" />
 
         <EditText
             android:id="@+id/numberPeople"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="0.25"
             android:ems="10"
             android:inputType="number"
             android:text="1" />
@@ -55,7 +57,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/label_tip" />
+            android:text="@string/label_tip"
+            android:textSize="24dp" />
 
         <Button
             android:layout_width="0dp"
@@ -78,25 +81,25 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="gone"
+        android:id="@+id/ratingLayout">
 
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ratingBar2"
-            android:stepSize="1" />
+            android:id="@+id/ratingBar"
+            android:rating="2.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/suggestedResult"
+            android:text="15%" />
 
     </LinearLayout>
-
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tip_picker"
-        android:clickable="true"
-        android:orientation="vertical"
-        android:visibility="visible"
-        android:layout_gravity="center_horizontal"
-        android:transitionGroup="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -107,10 +110,22 @@
         android:textColor="#ffff3634" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/tipPercentLayout"
+        android:visibility="visible">
 
+        <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tip_picker"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:layout_gravity="center_horizontal"
+            android:transitionGroup="true" />
     </LinearLayout>
 
     <LinearLayout
