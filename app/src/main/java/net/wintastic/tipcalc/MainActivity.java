@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.EditText;
 import android.widget.RatingBar;
@@ -46,24 +47,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         float tipPercent = (float)np.getValue() / 100;
 
-        TextView t =(TextView)findViewById(R.id.warning_txt);
-        if (billAmount.isEmpty()) {
-            t.setText(R.string.billAmountWarning);
-            etxtBillAmount.setBackgroundColor(0xFFFFD3D0);
-           // TextView billAmt = (TextView) findViewById(R.id.txtBillAmount);
-          //  billAmt.setTextColor(0xFF00FF00);
-        }
-        else if (numPeople.isEmpty()) {
-            t.setText(R.string.numPeopleWarning);
-            etxtNumberOfPeople.setBackgroundColor(0xFFFFD3D0);
-         //   TextView numPayees = (TextView) findViewById(R.id.txtNumPayees);
-         //  numPayees.setTextColor(0xFF00FF00);
-        
+
         LinearLayout ratingLayout=(LinearLayout)this.findViewById(R.id.ratingLayout);
         LinearLayout tipPercentLayout=(LinearLayout)this.findViewById(R.id.tipPercentLayout);
         switch(v.getId()) {
 
             case R.id.btnSubmit:
+                TextView t = (TextView) findViewById(R.id.warning_txt);
                 if (billAmount.isEmpty()) {
                     t.setText(R.string.billAmountWarning);
                     etxtBillAmount.setBackgroundColor(0xFFFFD3D0);
@@ -75,7 +65,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     etxtNumberOfPeople.setBackgroundColor(0xFFFFD3D0);
                     //   TextView numPayees = (TextView) findViewById(R.id.txtNumPayees);
                     //  numPayees.setTextColor(0xFF00FF00);
-                    else{
+                }
+                    else {
                         b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent);
                     }
                         break;
@@ -89,7 +80,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 break;
         }
         }
-    }
+
 
     public void b_submitClick(float billAmount, int numPeople, float tipPercent){
         Intent i = new Intent("net.wintastic.tipcalc.SummaryActivity");
