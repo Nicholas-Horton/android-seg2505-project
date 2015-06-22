@@ -28,8 +28,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         ratingChangeListener();
 
         NumberPicker np = (NumberPicker) findViewById(R.id.tip_picker);
-        np.setMaxValue(30);
-        np.setMinValue(1);
+        np.setMaxValue(50);
+        np.setMinValue(0);
+        np.setValue(15);
         np.setWrapSelectorWheel(false);
     }
 
