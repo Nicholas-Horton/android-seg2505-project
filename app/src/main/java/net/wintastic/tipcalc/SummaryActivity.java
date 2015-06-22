@@ -17,6 +17,7 @@ public class SummaryActivity extends ActionBarActivity {
     private float billAmount      = 0f;
     private int   numPeople       = 0;
     private float tipAmount       = 0f;
+    private float grandTotal      = 0f;
     private float tipTotal        = 0f;
     private float tipToPay        = 0f;
     private float amountPerPerson = 0f;
@@ -41,6 +42,7 @@ public class SummaryActivity extends ActionBarActivity {
         numPeople  = intent.getIntExtra("numPeople", 0);
         tipAmount  = intent.getFloatExtra("tipPercent", 0f);
         tipTotal   = calculateTipTotal(billAmount, numPeople, tipAmount);
+        grandTotal = billAmount + tipTotal;
         float amountToPay = 0f;
         if (numPeople == 0){tipToPay = 0f; amountToPay = billAmount;}
         else{tipToPay = tipTotal / numPeople; amountToPay = billAmount / numPeople;}
@@ -50,6 +52,7 @@ public class SummaryActivity extends ActionBarActivity {
         TextView txtBillAmount      = (TextView) findViewById(R.id.txtBillAmount);
         TextView txtNumPeople       = (TextView) findViewById(R.id.txtNumPayees);
         TextView txtTipAmount       = (TextView) findViewById(R.id.txtTipPercent);
+        TextView txtGrandTotal      = (TextView) findViewById(R.id.txtGrandTotal);
         TextView txtTipToPay        = (TextView) findViewById(R.id.txtTipToPay);
         TextView txtTipTotal        = (TextView) findViewById(R.id.txtTipTotal);
         TextView txtAmountPerPerson = (TextView) findViewById(R.id.txtAmountToPay);
@@ -57,6 +60,7 @@ public class SummaryActivity extends ActionBarActivity {
         txtBillAmount.setText(      "" + formatter.format(billAmount));
         txtNumPeople.setText(       "" + numPeople);
         txtTipAmount.setText(       "" + Math.round(tipAmount * 100) + "%"); // tip amount does not display correctly without rounding
+        txtGrandTotal.setText(      "" + formatter.format(grandTotal));
         txtTipTotal.setText(        "" + formatter.format(tipTotal));
         txtTipToPay.setText(        "" + formatter.format(tipToPay));
         txtAmountPerPerson.setText( "" + formatter.format(amountPerPerson));

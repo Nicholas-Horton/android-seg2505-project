@@ -17,4 +17,5 @@
     <string name="numPeopleWarning">No value entered for number of people</string>
     <string name="numPeopleWarning2">0 is not a valid value for number of people</string>
     <string name="label_tipAmount">Tip Amount</string>
+    <string name="label_GrandTotal">Grand Total</string>
 </resources>
