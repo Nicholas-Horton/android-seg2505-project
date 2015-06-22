@@ -108,6 +108,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         String billAmount = etxtBillAmount.getText().toString();
         String numPeople  = etxtNumberOfPeople.getText().toString();
+        int numPeopleInt = Integer.parseInt(numPeople);
 
         NumberPicker np = (NumberPicker) findViewById(R.id.tip_picker);
 
@@ -120,22 +121,30 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
             case R.id.btnSubmit:
                 TextView t = (TextView) findViewById(R.id.warning_txt);
+                TextView t2 = (TextView) findViewById(R.id.warning_txt2);
                 if (billAmount.isEmpty()) {
                     t.setText(R.string.billAmountWarning);
                     etxtBillAmount.setBackgroundColor(0xFFFFD3D0);
                     // TextView billAmt = (TextView) findViewById(R.id.txtBillAmount);
                     //  billAmt.setTextColor(0xFF00FF00);
                 }
-                else if (numPeople.isEmpty()) {
-                    t.setText(R.string.numPeopleWarning);
+                if (numPeople.equals("0"))
+                {   t2.setText(R.string.numPeopleWarning2);
+                    etxtNumberOfPeople.setBackgroundColor(0xFFFFD3D0);
+                }
+                if (numPeople.isEmpty()) {
+                    t2.setText(R.string.numPeopleWarning);
                     etxtNumberOfPeople.setBackgroundColor(0xFFFFD3D0);
                     //   TextView numPayees = (TextView) findViewById(R.id.txtNumPayees);
                     //  numPayees.setTextColor(0xFF00FF00);
                 }
-                else {
-                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-                    String c = sharedPref.getString("pref_currency", "$");
-                    b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent, c);
+                
+                if (!numPeople.isEmpty() && !numPeople.equals("0") && !billAmount.isEmpty()) {
+                    etxtNumberOfPeople.setBackgroundColor(0x00000000);
+                    etxtBillAmount.setBackgroundColor(0x00000000);
+                    t.setText(""); t2.setText("");
+                    b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent, "$"); SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+                    String c = sharedPref.getString("pref_currency", "$"); //TODO: Add a global var for currency character
                 }
                 break;
             case R.id.buttonManual:
