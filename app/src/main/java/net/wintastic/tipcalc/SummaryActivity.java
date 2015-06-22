@@ -36,12 +36,15 @@ public class SummaryActivity extends ActionBarActivity {
 
         txtBillAmount.setText("" + formatter.format(billAmount));
         txtNumPeople.setText("" + numPeople);
-        txtTipAmount.setText("" + tipAmount + "%");
+        txtTipAmount.setText("" + tipAmount * 100 + "%");
         txtTipToPay.setText("" + formatter.format(tipToPay));
     }
 
     private float calculateTip(float billAmount, int numPeople, float tipAmount){
-        return (billAmount * tipAmount) / numPeople;
+
+        if (numPeople == 0) { return 0;}
+        else {
+        return (billAmount * tipAmount) / numPeople;}
     }
 
     @Override

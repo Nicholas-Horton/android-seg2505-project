@@ -13,6 +13,7 @@ import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,9 +21,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         submitButtonClickListener();
 
-        NumberPicker np= (NumberPicker) findViewById(R.id.tip_picker);
+        NumberPicker np = (NumberPicker) findViewById(R.id.tip_picker);
         np.setMaxValue(30);
-        np.setMinValue(0);
+        np.setMinValue(1);
+        np.setWrapSelectorWheel(false);
     }
 
     public void submitButtonClickListener(){
@@ -38,9 +40,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         String billAmount = etxtBillAmount.getText().toString();
         String numPeople  = etxtNumberOfPeople.getText().toString();
 
+        NumberPicker np = (NumberPicker) findViewById(R.id.tip_picker);
+
+        float tipPercent = (float)np.getValue() / 100;
+
+
         switch(v.getId()){
             case R.id.btnSubmit:
-                b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), 0.15f);
+                b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent);
                 break;
         }
     }

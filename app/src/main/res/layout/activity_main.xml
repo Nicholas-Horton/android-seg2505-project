@@ -21,7 +21,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:ems="10"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:text="0.00" />
     </LinearLayout>
 
     <LinearLayout
@@ -41,13 +42,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="1" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:minHeight="50dp">
 
         <TextView
             android:layout_width="0dp"
@@ -76,12 +79,19 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:minHeight="@dimen/abc_action_button_min_width_material"
+        android:measureWithLargestChild="false"
+        android:visibility="visible"
+        android:id="@+id/linearLayoutx"
+        android:baselineAligned="false"
+        android:paddingLeft="24dp">
 
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ratingBar2" />
+            android:id="@+id/ratingBar2"
+            android:layout_gravity="center" />
 
     </LinearLayout>
 
