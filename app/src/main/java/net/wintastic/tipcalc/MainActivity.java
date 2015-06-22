@@ -54,7 +54,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                int val = (int) (10 + 2*rating);
+                int val = (int) (10 + 2 * rating);
                 suggestedResult.setText(val + "%");
                 tipPicker.setValue(val);
             }
@@ -76,9 +76,25 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         LinearLayout ratingLayout=(LinearLayout)this.findViewById(R.id.ratingLayout);
         LinearLayout tipPercentLayout=(LinearLayout)this.findViewById(R.id.tipPercentLayout);
-        switch(v.getId()){
+        switch(v.getId()) {
+
             case R.id.btnSubmit:
-                b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent);
+                TextView t = (TextView) findViewById(R.id.warning_txt);
+                if (billAmount.isEmpty()) {
+                    t.setText(R.string.billAmountWarning);
+                    etxtBillAmount.setBackgroundColor(0xFFFFD3D0);
+                    // TextView billAmt = (TextView) findViewById(R.id.txtBillAmount);
+                    //  billAmt.setTextColor(0xFF00FF00);
+                }
+                else if (numPeople.isEmpty()) {
+                    t.setText(R.string.numPeopleWarning);
+                    etxtNumberOfPeople.setBackgroundColor(0xFFFFD3D0);
+                    //   TextView numPayees = (TextView) findViewById(R.id.txtNumPayees);
+                    //  numPayees.setTextColor(0xFF00FF00);
+                }
+                else {
+                    b_submitClick(Float.parseFloat(billAmount), Integer.parseInt(numPeople), tipPercent);
+                }
                 break;
             case R.id.buttonManual:
                 ratingLayout.setVisibility(LinearLayout.GONE);
