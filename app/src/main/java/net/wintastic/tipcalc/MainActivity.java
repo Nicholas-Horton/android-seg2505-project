@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.EditText;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
@@ -22,6 +24,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         submitButtonClickListener();
         tipMethodsButtonClickListener();
+
+        ratingChangeListener();
 
         NumberPicker np = (NumberPicker) findViewById(R.id.tip_picker);
         np.setMaxValue(30);
@@ -39,6 +43,21 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         Button btnSuggested = (Button)findViewById(R.id.buttonSuggested);
         btnManual.setOnClickListener(this);
         btnSuggested.setOnClickListener(this);
+    }
+
+    public void ratingChangeListener(){
+        RatingBar ratingBar = (RatingBar)findViewById(R.id.ratingBar);
+        final TextView suggestedResult = (TextView)findViewById(R.id.suggestedResult);
+        final NumberPicker tipPicker = (NumberPicker)findViewById(R.id.tip_picker);
+
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                int val = (int) (10 + 2*rating);
+                suggestedResult.setText(val + "%");
+                tipPicker.setValue(val);
+            }
+        });
     }
 
     @Override

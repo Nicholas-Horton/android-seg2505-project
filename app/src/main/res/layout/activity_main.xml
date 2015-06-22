@@ -89,14 +89,14 @@
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ratingBar2"
+            android:id="@+id/ratingBar"
             android:rating="2.5" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/suggested_result"
+            android:id="@+id/suggestedResult"
             android:text="15%" />
 
     </LinearLayout>
